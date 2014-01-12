@@ -9,10 +9,10 @@ from web import form
 from web.contrib.template import render_mako
 from datetime import date
 
-consumer_key = 'b3GgjCThqLaCxnLKacZPg'
-consumer_secret = 'u4BUfTKJHlADeaRj0AsZAqu2W2BJ5PWEF9i4BRyQ'
-access_token = '264740225-Zjfw33W0B6ylm7r3o0TnXHCIh2jNoQSsox7G5xZQ'
-access_token_secret = 'PMhH8vdJj0L3KIX5TdYVmdSy3sEldBx5fdd4EnsVk'
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
