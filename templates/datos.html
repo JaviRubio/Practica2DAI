@@ -1,0 +1,78 @@
+<%inherit file='base.html'/>
+
+ <%def name="title()">
+    <h1>Ejercicio 4.2 de DAI</h1>
+  </%def>
+
+  <%def name='grafico()'>
+	${next.grafico()}
+</%def>
+
+<%def name='formulario()'>
+	% if user=='anonymous':
+		<form id="main" method="post" action="index.html">
+			${formLogin}
+			 <input type="submit" name="button" value="Login" />	
+		</form>
+	% else:
+  			<p>You are logged in as: ${user}</p>
+		    <p><a href="logout">Logout</a></p>
+	% endif
+</%def>
+
+<%def name='leftColumnTitle()'>
+	<p>
+		Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla
+	</p>
+</%def>
+
+<%def name='rss()'>
+	<table id="tabla">
+		<tr>
+			<td>
+				<a href=${feed[0][1]}>${feed[0][0]}</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href=${feed[1][1]}>${feed[1][0]}</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href=${feed[2][1]}>${feed[2][0]}</a>
+			</td>
+		</tr>
+	</table>
+</%def>
+
+<%def name='menu()'>
+	<ul>
+ 	<li><a href="index.html">Inicio</a></li>
+ 	<li><a href="about.html">Descargas</a></li> 	
+ 	<li><a href="archives.html">Online</a></li>
+  	<li><a href="writing.html">Colaboraciones</a></li>
+ 	<li><a href="speaking.html">Foros</a></li>
+ 	<li><a href="contact.html">Contactar</a></li>
+ 	<li><a href="register.html">Registro</a></li>
+ 	<li><a href="chart.html">Grafico</a></li>
+ 	<li><a href="mash.html">Tweeter</a></li>
+ 	% if pag1!='vacio':
+		<li><a href=${pag1}>Atras 1</a></li>
+	%endif
+	% if pag2!='vacio':
+		<li><a href=${pag2}>Atras 2</a></li>
+	%endif
+	% if pag3!='vacio':
+		<li><a href=${pag3}>Atras 3</a></li>
+	%endif
+  </ul>
+</%def>
+
+<%def name='rightColumnTitle()'>
+	${next.rightColumnTitle()}
+</%def>
+
+<%def name='rightColumnContent()'>
+	${next.rightColumnContent()}
+</%def>

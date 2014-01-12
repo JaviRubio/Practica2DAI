@@ -1,0 +1,98 @@
+<%inherit file='datos.html'/>
+
+<%def name='grafico()'>
+ <script type="text/javascript"
+      src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBD3PmWk_7xWEIu5BrtDHllXLieyuj0BNA&sensor=true'>
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(37.11, -3.35),
+          zoom: 4
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+        ${geolatw[1]}
+        % if geolatw[0] != 1000:
+        	var myLatlng1 = new google.maps.LatLng(${geolatw[0]},${geolonw[0]});
+        	var marker1 = new google.maps.Marker({position: myLatlng1,title:"Tweet1"});
+        	marker1.setMap(map);
+        % endif
+
+        % if geolatw[1] != 1000:
+        	var myLatlng2 = new google.maps.LatLng(${geolatw[1]},${geolonw[1]});
+        	var marker2 = new google.maps.Marker({position: myLatlng2,title:"Tweet2"});
+        	marker2.setMap(map);
+        % endif
+
+        % if geolatw[2] != 1000:
+        	var myLatlng3 = new google.maps.LatLng(${geolatw[2]},${geolonw[2]});
+        	var marker3 = new google.maps.Marker({position: myLatlng3,title:"Tweet3"});
+        	marker3.setMap(map);
+        % endif
+
+        % if geolatw[3] != 1000:
+        	var myLatlng4 = new google.maps.LatLng(${geolatw[3]},${geolonw[3]});
+        	var marker4 = new google.maps.Marker({position: myLatlng4,title:"Tweet4"});
+        	marker4.setMap(map);
+        % endif
+
+        % if geolatw[4] != 1000:
+        	var myLatlng5 = new google.maps.LatLng(${geolatw[4]},${geolonw[4]});
+        	var marker5 = new google.maps.Marker({position: myLatlng5,title:"Tweet5"});
+        	marker5.setMap(map);
+        % endif
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+</%def>
+
+<%def name='rightColumnTitle()'>
+	<h2>Tweeter</h2>
+</%def>
+
+<%def name='rightColumnContent()'>
+	<div id="map-canvas"></div>
+	<table id="tablatweet">
+		<tr>
+			<td>
+				${twe[0].text}
+			</td>
+			<td>
+				${twe[0].author.name}
+			</td>
+		<tr>
+		<tr>
+			<td>
+				${twe[1].text}
+			</td>
+			<td>
+				${twe[1].author.name}
+			</td>
+		<tr>
+		<tr>
+			<td>
+				${twe[2].text}
+			</td>
+			<td>
+				${twe[2].author.name}
+			</td>
+		<tr>
+		<tr>
+			<td>
+				${twe[3].text}
+			</td>
+			<td>
+				${twe[3].author.name}
+			</td>
+		<tr>
+		<tr>
+			<td>
+				${twe[4].text}
+			</td>
+			<td>
+				${twe[4].author.name}
+			</td>
+		<tr>
+	</table>
+</%def>
